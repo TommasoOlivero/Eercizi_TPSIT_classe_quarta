@@ -2,19 +2,20 @@
 #include <stdlib.h>
 
 #define DIM 10
+/*
+Definire una struttura per memorizzare i dati degli studenti di una calsse e
+dei voti nelle varie discipline: Italiano, Matematica, e Informatica.
+Si scriva una funzione in C che, a partire da un vettore di studenti fornito come argomento,
+determina la disciplina che ha la media piu alta.
 
+*/
 
-/*Inserimento ordinato
+typedef struct{
+    int ita;
+    int mate;
+    int info;
 
-Si scriva un programma che :
-
- definisca un tipo di dato studente: ogni studente è caratterizzato da un nome, un cognome e una matricola
-
- -acquisica dati di 10 studenti e per ogni nuovo studente inserito, proceda ad un inserimento ordinato
-(lo scopo dell'esercizio è nell ordinare gli studenti nel processo di inserimento degli stessi e  non
- dopo averli insertiti tutti con un algoritmo di ordinamento)
-
- -stampi i dati degli studenti*/
+}Voti;
 
 typedef struct{
     char nome[20];
@@ -22,7 +23,7 @@ typedef struct{
     int matricola;
 }Stu;
 
-void leggi(Stu v[], int n){
+void leggi(Stu v[], Voti s[], int n){
 
     for(int i = 0; i < n; i++){
         printf("\nSTUDENTE NUMERO %d\n", i);
@@ -32,22 +33,57 @@ void leggi(Stu v[], int n){
         scanf("%s", v[i].cognome);
         printf("Inserisci matricola: ");
         scanf("%d", &v[i].matricola);
+        printf("Inserisci voto di matematica: ");
+        scanf("%d", &s[i].mate);
+        printf("Inserisci voto di italiano: ");
+        scanf("%d", &s[i].ita);
+        printf("Inserisci voto di informatica: ");
+        scanf("%d", &s[i].info);
     }
 
 }
 
-void stampa(Stu v[], int n){
+void media(Voti s[], float med[], int n){
+        float somma = 0;
+        int k = 0;
+
+
+           for(int i = 0; i < n; i++){
+            somma = somma + s[i].mate;
+        }
+
+        med[k] = somma / n;
+        k++;
+        somma = 0;
+
+        for(int i = 0; i < n; i++){
+            somma = somma + s[i].ita;
+        }
+
+        med[k] = somma / n;
+        k++;
+        somma = 0;
+
+        for(int i = 0; i < n; i++){
+            somma = somma + s[i].info;
+        }
+
+        med[k] = somma / n;
+        k++;
+
+}
+
+void stampa(Stu v[], int med[], int n){
 
     for(int i = 0; i < n; i++){
         printf("STUDENTE NUMERO %d:\n", i);
-
-        printf("nome: %s\n", v[i].nome);
-
-        printf("cognome: %s\n", v[i].cognome);
-
-        printf("matricola: %d\n", v[i].matricola);
-
+        printf("%s %s - %d\n", v[i].nome, v[i].cognome, v[i].matricola);
     }
+
+    printf("\n\nMEDIA DELLE MATERIE");
+    printf("\nMatematica: %f", med[0]);
+    printf("\nItaliano: %f", med[1]);
+    printf("\nInformatica: %f", med[2]);
 
 }
 
@@ -64,12 +100,14 @@ int dimensione(int max){
 
 int main() {
     Stu v[DIM];
+    Stu s[3];
+    int med[3];
 
     int n = dimensione(DIM);
 
-    leggi(v, n);
-
-    stampa(v, n);
+    leggi(v, s, n);
+    media(s, med, n);
+    stampa(v, med, n);
 
     printf("\n");
     return 0;
