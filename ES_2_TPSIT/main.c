@@ -10,104 +10,99 @@ determina la disciplina che ha la media piu alta.
 
 */
 
-typedef struct{
-    int ita;
-    int mate;
-    int info;
-
-}Voti;
-
-typedef struct{
+typedef struct {
     char nome[20];
     char cognome[20];
-    int matricola;
-}Stu;
+    float ita;
+    float mate;
+    float info;
+} Stu;
 
-void leggi(Stu v[], Voti s[], int n){
+void leggi(Stu v[], int n) {
 
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++) {
         printf("\nSTUDENTE NUMERO %d\n", i);
         printf("Inserisci nome: ");
         scanf("%s", v[i].nome);
         printf("Inserisci cognome: ");
         scanf("%s", v[i].cognome);
-        printf("Inserisci matricola: ");
-        scanf("%d", &v[i].matricola);
         printf("Inserisci voto di matematica: ");
-        scanf("%d", &s[i].mate);
+        scanf("%f", &v[i].mate);
         printf("Inserisci voto di italiano: ");
-        scanf("%d", &s[i].ita);
+        scanf("%f", &v[i].ita);
         printf("Inserisci voto di informatica: ");
-        scanf("%d", &s[i].info);
+        scanf("%f", &v[i].info);
     }
 
 }
 
-void media(Voti s[], float med[], int n){
-        float somma = 0;
-        int k = 0;
+void media(Stu s[], float med[], int n) {
+    float somma = 0;
+    int k = 0;
 
 
-           for(int i = 0; i < n; i++){
-            somma = somma + s[i].mate;
-        }
-
-        med[k] = somma / n;
-        k++;
-        somma = 0;
-
-        for(int i = 0; i < n; i++){
-            somma = somma + s[i].ita;
-        }
-
-        med[k] = somma / n;
-        k++;
-        somma = 0;
-
-        for(int i = 0; i < n; i++){
-            somma = somma + s[i].info;
-        }
-
-        med[k] = somma / n;
-        k++;
-
-}
-
-void stampa(Stu v[], int med[], int n){
-
-    for(int i = 0; i < n; i++){
-        printf("STUDENTE NUMERO %d:\n", i);
-        printf("%s %s - %d\n", v[i].nome, v[i].cognome, v[i].matricola);
+    for(int i = 0; i < n; i++) {
+        somma = somma + s[i].mate;
     }
 
-    printf("\n\nMEDIA DELLE MATERIE");
-    printf("\nMatematica: %f", med[0]);
-    printf("\nItaliano: %f", med[1]);
-    printf("\nInformatica: %f", med[2]);
+    med[k] = somma / n;
+    k++;
+    somma = 0;
+
+    for(int i = 0; i < n; i++) {
+        somma = somma + s[i].ita;
+    }
+
+    med[k] = somma / n;
+    k++;
+    somma = 0;
+
+    for(int i = 0; i < n; i++) {
+        somma = somma + s[i].info;
+    }
+
+    med[k] = somma / n;
+    k++;
+}
+
+void stampa(float med[]) {
+
+    printf("\n\nDISCIPLINA CON LA MEDIA MAGGIORE");
+    if(med[0] > med[1] && med[0] > med[2]) {
+        printf("\nMatematica: %.2f", med[0]);
+    } else {
+        if(med[1] > med[2]) {
+            printf("\nItaliano: %.2f", med[1]);
+        } else {
+            printf("\nInformatica: %.2f", med[2]);
+        }
+
+    }
+
+
 
 }
 
-int dimensione(int max){
+int dimensione(int max) {
     int n;
 
-    do{
+    do {
         printf("Inserisci il numero di studenti: ");
         scanf("%d", &n);
-    }while(n < 0 || n > max);
+    } while(n < 0 || n > max);
 
     return n;
 }
 
 int main() {
     Stu v[DIM];
-    Stu s[3];
-    int med[3];
+    float med[3];
 
     int n = dimensione(DIM);
 
-    leggi(v, s, n);
-    media(s, med, n);
-    stampa(v, med, n);
+    leggi(v, n);
+    media(v, med, n);
+    stampa(med);
 
     printf("\n");
     return 0;
