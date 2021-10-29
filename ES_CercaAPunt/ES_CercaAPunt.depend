@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1634718763 source:c:\users\tommy\desktop\4a rob\info\ripasso\strutture_ripasso\es_cercaapunt\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
