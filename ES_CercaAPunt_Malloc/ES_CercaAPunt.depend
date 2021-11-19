@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1634718763 source:c:\users\tommy\desktop\4a rob\info\ripasso\strutture_ripasso\es_cercaapunt\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1635451461 source:c:\users\tommy\desktop\4a rob\tpsit\esercizi\es_cercaapunt_malloc\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+

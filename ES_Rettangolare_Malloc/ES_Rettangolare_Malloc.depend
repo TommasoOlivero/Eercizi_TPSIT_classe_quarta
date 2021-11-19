@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1635507054 source:c:\users\tommy\desktop\es_rettangolare_malloc\main.c
+	<stdio.h>
+	<stdlib.h>
+

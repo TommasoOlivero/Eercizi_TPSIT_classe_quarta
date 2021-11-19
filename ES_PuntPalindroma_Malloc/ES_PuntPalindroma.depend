@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1634716164 source:c:\users\tommy\desktop\4a rob\info\ripasso\strutture_ripasso\es_puntpalindroma\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
+1635451615 source:c:\users\tommy\desktop\4a rob\tpsit\esercizi\es_puntpalindroma_malloc\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
