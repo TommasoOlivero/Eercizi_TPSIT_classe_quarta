@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1631630944 source:c:\users\tommy\desktop\4a rob\tpsit\es_2_tpsit\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1633283447 source:c:\users\tommy\desktop\4a rob\tpsit\esercizi\es_2_tpsit\main.c
+	<stdio.h>
+	<stdlib.h>
+
