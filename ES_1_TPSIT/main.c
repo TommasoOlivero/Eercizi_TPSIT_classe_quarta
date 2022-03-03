@@ -8,21 +8,21 @@
 
 Si scriva un programma che :
 
- definisca un tipo di dato studente: ogni studente è caratterizzato da un nome, un cognome e una matricola
+ definisca un tipo di dato studente: ogni studente Ã¨ caratterizzato da un nome, un cognome e una matricola
 
  -acquisica dati di 10 studenti e per ogni nuovo studente inserito, proceda ad un inserimento ordinato
-(lo scopo dell'esercizio è nell ordinare gli studenti nel processo di inserimento degli stessi e  non
+(lo scopo dell'esercizio Ã¨ nell ordinare gli studenti nel processo di inserimento degli stessi e  non
  dopo averli insertiti tutti con un algoritmo di ordinamento)
 
  -stampi i dati degli studenti*/
 
-typedef struct{
+typedef struct{                //definizione struttura
     char nome[20];
     char cognome[20];
     int matricola;
 }Stu;
 
-void leggi(Stu v[], int n){
+void leggi(Stu v[], int n){            //inserimento dei dati in input
 
     for(int i = 0; i < n; i++){
         printf("\nSTUDENTE NUMERO %d\n", i);
@@ -36,7 +36,7 @@ void leggi(Stu v[], int n){
 
 }
 
-void stampa(Stu v[], int n){
+void stampa(Stu v[], int n){                     //stampa dei dati
 
     for(int i = 0; i < n; i++){
         printf("STUDENTE NUMERO %d:\n", i);
@@ -51,7 +51,7 @@ void stampa(Stu v[], int n){
 
 }
 
-int dimensione(int max){
+int dimensione(int max){                                //definizione dimensione array e controllo del valore inserito
     int n;
 
     do{
