@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1646323671 source:c:\users\tommy\desktop\codainvertita\main.c
+	<stdio.h>
+	<stdlib.h>
+
